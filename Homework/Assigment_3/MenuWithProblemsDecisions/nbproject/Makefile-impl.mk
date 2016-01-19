@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=HelloWorld
+PROJECTNAME=MenuWithProblemsDecisions
 
 # Active Configuration
 DEFAULTCONF=Debug
