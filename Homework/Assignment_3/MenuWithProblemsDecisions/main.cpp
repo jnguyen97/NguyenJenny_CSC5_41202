@@ -163,12 +163,11 @@ int main(int argc, char** argv) {
                 cout<<endl<<"Solution to Savitch 9thEd Chap 3 Prog Proj3"<<endl;
                 cout<<endl<<"The Roman Numeral Conversion Program"<<endl<<endl;
 
-                //set random number seed
-                srand(static_cast<unsigned int>(time(0)));     
-
                 //Declare and initialize variables 
-                unsigned short number=rand()%2001+1000;  //[1000,3000]
+                unsigned short number;  //
                 unsigned char  n1000s,n100s,n10s,n1s;    //Number of 10^x
+                cout<<"Enter the number from 0 to 3000."<<endl;
+                cin>>number;
                 cout<<"The number to convert = "<<number<<endl;
 
                 //Calculate the number of 1000's, 100's, 10's, 1's
@@ -227,7 +226,7 @@ int main(int argc, char** argv) {
                     case 3: cout<<"III";break;
                     case 2: cout<<"II";break;
                     case 1: cout<<"I";break;
-                }
+                }cout<<endl;
                     break;
             }
                 default:{
