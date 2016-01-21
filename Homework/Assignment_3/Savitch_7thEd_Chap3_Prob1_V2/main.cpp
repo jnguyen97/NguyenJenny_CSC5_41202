@@ -35,7 +35,7 @@ int main(int argc, char** argv) {
 
         //Input the player's turn
         do{
-            cout<<"What is your move P, R, S? (｡◕‿‿◕｡)"<<endl;
+            cout<<"What is your move P, R, S?"<<endl;
             cin>>player;
             player=toupper(player);
         }while(!(player=='P'||player=='R'||player=='S'));
@@ -51,19 +51,20 @@ int main(int argc, char** argv) {
 
         //Determine the result
         if(computr==player){
-            cout<<"Tie! No one wins! ƪ(˘‿˘)ʃ "<<endl;
+            cout<<"Tie! No one wins!  "<<endl;
         }else if(player=='P'&&computr=='R'){
-            cout<<"You Won! Good job! (ﾉ ◕‿◕)ﾉ*:･ﾟ✧"<<endl;
+            cout<<"You Won! Good job! "<<endl;
         }else if(player=='R'&&computr=='S'){
-            cout<<"You Won! Awesome! ~(˘▾˘~)"<<endl;
+            cout<<"You Won! Awesome! "<<endl;
         }else if(player=='S'&&computr=='P'){
-            cout<<"You Won! Nice! (づ｡◕‿‿◕｡)づ"<<endl;
+            cout<<"You Won! Nice! "<<endl;
         }else{
-            cout<<"You lost! ｡゜(; ^ ;)゜｡"<<endl;
+            cout<<"You lost! "<<endl;
         }
 
         //Keep playing?
-        cout<<endl<<"Would you like to play around round? (｡◕ ‿ ◕｡)"<<endl;
+        cout<<endl<<"Would you like to play another round? "
+                "(Press Y to play again or any other key to quit.)"<<endl;
         cin>>qwstion;
     }while(toupper(qwstion)=='Y');
     
