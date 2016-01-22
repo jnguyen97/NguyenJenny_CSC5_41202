@@ -16,6 +16,7 @@ using namespace std;
 //User Libraries
 
 //Global Constants
+const float PI=4*atan(1);
 
 //Function prototypes
 
@@ -29,16 +30,16 @@ int main(int argc, char** argv) {
     do{
          //Input data
         cout<<endl<<"Assignment 3 Problem Set"<<endl;
-        cout<<"Type 1  to Display Savitch 8Ed Chap3 Prac Prob 10"<<endl;
-        cout<<"Type 2  to Display Savitch 8Ed Chap3 Prac Prob 11"<<endl;
-        cout<<"Type 3  to Display Savitch 7Ed Chap3 Prac Prob 1"<<endl;
-        cout<<"Type 4  to Display Savitch 9Ed Chap3 Prog Proj 3"<<endl;
-        cout<<"Type 5  to Display Savitch 9Ed Chap3 Prac Prob 6"<<endl;
-        cout<<"Type 6  to Display Savitch 9Ed Chap3 Prac Prob 7"<<endl;
-        cout<<"Type 7  to Display Savitch 9Ed Chap3 Prob "<<endl;
-        cout<<"Type 8  to Display Savitch 9Ed Chap3 Prob "<<endl;
-        cout<<"Type 9  to Display Savitch 9Ed Chap3 Prob "<<endl;
-        cout<<"Type 10 to Display Savitch 9Ed Chap3 Prob "<<endl;
+        cout<<"Type 1  to Display Problem 1"<<endl; //Fibonacci Sequence
+        cout<<"Type 2  to Display Problem 2"<<endl; //Finite Sum of e^x
+        cout<<"Type 3  to Display Problem 3"<<endl; //Rock Paper Scissors
+        cout<<"Type 4  to Display Problem 4"<<endl; //Roman Numeral Conversion
+        cout<<"Type 5  to Display Problem 5"<<endl; //Buoyancy
+        cout<<"Type 6  to Display Problem 6"<<endl; //Fahrenheit and Celsius
+        cout<<"Type 7  to Display Problem 7"<<endl; //Approximate Pi
+        cout<<"Type 8  to Display Problem 8"<<endl; //Prime Numbers
+        cout<<"Type 9  to Display Problem 9"<<endl; //Horoscopes
+        cout<<"Type 10 to Display Problem 10"<<endl; //Elements
         cout<<"Type anything else to exit"<<endl<<endl;
         cin>>nSoltn;
         //Solutions to all the problems
@@ -51,7 +52,7 @@ int main(int argc, char** argv) {
                 unsigned int fi, fim1, fim2;//Designations in the sequence
                 unsigned short nTerms;      //Number of terms in the sequence
                 unsigned short counter;     //Current position in the sequence
-                const char DEREPRO=5;          //Days to reproduce
+                const char DEREPRO=5;       //Days to reproduce
                 float crudWt;               //Weight of Crud
                 unsigned int nDays;         //Number of Days to grow crud
                 //Initialize the sequence
@@ -286,6 +287,288 @@ int main(int argc, char** argv) {
                 //Output the results
                 cout<<endl<<"When it is "<<frnht<<" degrees Fahrenheit,"<<endl;
                 cout<<"it is also "<<celsius<<" degrees in Celsius."<<endl;
+                break;
+            }
+            case 7:{
+                 //The problem to solve
+                cout<<endl<<"Solution to Savitch 8thEd Chap3 Prob12"<<endl;
+                cout<<endl<<"The finite sum for PI"<<endl<<endl;
+
+                //Declare and initialize variables for apprxPI
+                float apprxPI=1;     //Approximate value of PI to start
+                unsigned int nTerms; //Number of times to limit sum of PI
+                char sign=-1;        //Alternating sign of the PI sequence
+
+                //Input the number of terms in the sequence
+                cout<<"Input number of Terms to approximate PI."<<endl;
+                cin>>nTerms;
+
+                 //Approximate PI/4
+                for(int i=2,j=3;i<=nTerms;i++,j+=2){
+                    apprxPI+=(sign/static_cast<float>(j));
+                    sign*=-1;
+                }
+                apprxPI*=4;//Multiply by 4 once to approximate PI
+
+                //Output the results
+                cout<<endl<<"The exact value of PI = "<<PI<<endl<<endl;
+                cout<<"The number of terms it took to approx PI = "<<nTerms<<endl<<endl;
+                cout<<"The approx value of PI = "<<apprxPI<<endl;
+                break;
+            }
+            case 8:{
+                //The problem to solve
+                cout<<endl<<"Solution to Savitch 9thEd Chap3 Prob5"<<endl;
+                cout<<endl<<"Prime Numbers from 3 - 100"<<endl<<endl;
+
+                //declare and initialize variables
+                int i;    
+                int prime=3; 
+                int number=2; 
+
+                //Output the results
+                while (prime<=100){   
+                    for(int i=2;i<=prime;i++){
+                        number=i;
+                        if(number==prime){          
+                        cout<<prime<<endl;
+                        }
+                        else if(prime%number==0){ 
+                        i+=prime;  
+                        }
+                    }
+                    ++prime;
+                } 
+                break;
+            }
+            case 9:{
+                 //The problem to solve
+                cout<<endl<<"Solution to Savitch 9thEd Chap3 Prob3"<<endl;
+                cout<<endl<<"Horoscopes"<<endl<<endl;
+
+                //declare and initialize variables
+                int month;   //birth month of user 
+                int day;     //birth day of user
+                char answer; //question if user wants to repeat
+
+                //loop
+                do{
+                    cout<<"Enter the month you were born in.(1-12)"<<endl;
+                    cin>>month;
+                    cout<<"Enter the day you were born.(1-31)"<<endl;
+                    cin>>day;
+                    if (day>31||month>12){
+                    cout<<"Please enter a valid day or month"<<endl;
+                    } 
+                    else if (month==3&&day>=21||month==4&&day<=19){
+                        cout<<"You are an Aries."<<endl; //March 21–April 19
+                        if (day<=22&&day>=19){        
+                            cout<<"Your birthday is on a cusp."<<endl;
+                        }else if (month==4&&day>=17){
+                            cout<<"Your birthday is on a cusp."<<endl;
+                     }
+                    }else if (month==4&&day>=20||month==5&&day<=20){
+                        cout<<"You are a Taurus."<<endl;   //April 20–May 20
+                        if (day<=21&&day>=19){        
+                            cout<<"Your birthday is on a cusp."<<endl;
+                        }
+                    }else if (month==5&&day>=21||month==6&&day<=21){
+                        cout<<"You are a Gemini."<<endl;  //May 21–June 21 
+                        if (day<=22&&day>=20){        
+                            cout<<"Your birthday is on a cusp."<<endl;
+                        }
+                    }else if (month==6&&day>=22||month==7&&day<=22){
+                        cout<<"You are a Cancer."<<endl;  //June 22–July 22
+                        if (day<=23&&day>=21){        
+                            cout<<"Your birthday is on a cusp."<<endl;
+                        }  
+                    }else if (month==7&&day>=23||month==8&&day<=22){
+                        cout<<"You are a Leo."<<endl;    //July 23–August 22 
+                        if (day<=24&&day>=21){        
+                            cout<<"Your birthday is on a cusp."<<endl;
+                        }
+                    }else if (month==8&&day>=23||month==9&&day<=22){
+                        cout<<"You are a Virgo."<<endl;    //August 23–September 22
+                        if (day<=24&&day>=21){        
+                            cout<<"Your birthday is on a cusp."<<endl;
+                        }
+                    }else if (month==9&&day>=23||month==10&&day<=22){
+                        cout<<"You are a Libra."<<endl;    //September 23–October 22
+                        if (day<=24&&day>=21){        
+                            cout<<"Your birthday is on a cusp."<<endl;
+                        }
+                    }else if (month==10&&day>=23||month==11&&day<=21){
+                        cout<<"You are a Scorpio."<<endl;   //October 23–November 21 
+                        if (day<=24&&day>=22){        
+                            cout<<"Your birthday is on a cusp."<<endl;
+                        }else if (month==11&&day>=19){
+                            cout<<"Your birthday is on a cusp."<<endl;
+                        }
+                    }else if (month==11&&day>=22||month==12&&day<=21){
+                        cout<<"You are a Sagittarius."<<endl; //November 22–December 21
+                        if (day<=23&&day>=20){        
+                            cout<<"Your birthday is on a cusp."<<endl;
+                        }
+                    }else if (month==12&&day>=22||month==1&&day<=19){
+                        cout<<"You are a Capricorn."<<endl;   //December 22–January 19
+                        if (day<=23&&day>=20){        
+                            cout<<"Your birthday is on a cusp."<<endl;
+                        }else if (month==1&&day>=17){
+                            cout<<"Your birthday is on a cusp."<<endl;
+                        }
+                    }else if (month==1&&day>=20||month==2&&day<=18){  
+                        cout<<"You are a Aquarius."<<endl;    //for January 20–February 18
+                        if (day<=21&&day>18){          
+                            cout<<"Your birthday is on a cusp."<<endl;
+                        }else if (month==2&&day>=16){
+                            cout<<"Your birthday is on a cusp."<<endl;
+                        }
+                    }else if (month==2&&day>=19||month==3&&day<=20){
+                        cout<<"You are a Pisces."<<endl;      //February 19–March 20
+                        if (day<=21&&day>=18){        
+                            cout<<"Your birthday is on a cusp."<<endl;
+                        }
+                    }else { 
+                        cout<<"Please enter a valid day"<<endl;
+                    }   
+                    //if the user would like to repeat
+                    cout<<endl<<"Do you want to check another birthday?"<<endl;
+                    cout<<"Press Y to check again or any other key to quit."<<endl;
+                    cin>>answer;
+                }while(toupper(answer)=='Y');
+                break;
+            }
+            case 10:{
+                //The problem to solve
+                cout<<endl<<"Solution to Savitch 9thEd Chap3 Prob3"<<endl;
+                cout<<endl<<"Horoscopes"<<endl<<endl;
+
+                //declare and initialize variables
+                int month;   //birth month of user 
+                int day;     //birth day of user
+                char answer; //question if user wants to repeat
+
+                //loop
+                do{
+                    cout<<"Enter the month you were born in.(1-12)"<<endl;
+                    cin>>month;
+                    cout<<"Enter the day you were born.(1-31)"<<endl;
+                    cin>>day;
+                    if (day>31||month>12){
+                    cout<<"Please enter a valid day or month"<<endl;
+                    } 
+                    else if (month==3&&day>=21||month==4&&day<=19){
+                        cout<<"You are an Aries."<<endl; //March 21–April 19
+                        cout<<"Your element is Fire."<<endl;
+                        cout<<"You are most compatible with other "
+                                "Aries, Leo, Sagittarius."<<endl;
+                        if (day<=22&&day>=19){        
+                            cout<<"Your birthday is on a cusp."<<endl;
+                        }else if (month==4&&day>=17){
+                            cout<<"Your birthday is on a cusp."<<endl;
+                     }
+                    }else if (month==4&&day>=20||month==5&&day<=20){
+                        cout<<"You are a Taurus."<<endl;   //April 20–May 20
+                        cout<<"Your element is Earth."<<endl;
+                        cout<<"You are most compatible with other "
+                                "Taurus, Virgo, Capricorn."<<endl;
+                        if (day<=21&&day>=19){        
+                            cout<<"Your birthday is on a cusp."<<endl;
+                        }
+                    }else if (month==5&&day>=21||month==6&&day<=21){
+                        cout<<"You are a Gemini."<<endl;  //May 21–June 21 
+                        cout<<"Your element is Air."<<endl;
+                        cout<<"You are most compatible with other "
+                                "Gemini, Libra, Aquarius."<<endl;
+                        if (day<=22&&day>=20){        
+                            cout<<"Your birthday is on a cusp."<<endl;
+                        }
+                    }else if (month==6&&day>=22||month==7&&day<=22){
+                        cout<<"You are a Cancer."<<endl;  //June 22–July 22
+                        cout<<"Your element is Water."<<endl;
+                        cout<<"You are most compatible with other "
+                                "Cancer, Scorpio, Pisces."<<endl;
+                        if (day<=23&&day>=21){        
+                            cout<<"Your birthday is on a cusp."<<endl;
+                        }  
+                    }else if (month==7&&day>=23||month==8&&day<=22){
+                        cout<<"You are a Leo."<<endl;    //July 23–August 22 
+                        cout<<"Your element is Fire."<<endl;
+                        cout<<"You are most compatible with other "
+                                "Leo, Aries, Sagittarius."<<endl;
+                        if (day<=24&&day>=21){        
+                            cout<<"Your birthday is on a cusp."<<endl;
+                        }
+                    }else if (month==8&&day>=23||month==9&&day<=22){
+                        cout<<"You are a Virgo."<<endl;    //August 23–September 22
+                        cout<<"Your element is Earth."<<endl;
+                        cout<<"You are most compatible with other "
+                                "Virgo, Taurus Capricorn."<<endl;
+                        if (day<=24&&day>=21){        
+                            cout<<"Your birthday is on a cusp."<<endl;
+                        }
+                    }else if (month==9&&day>=23||month==10&&day<=22){
+                        cout<<"You are a Libra."<<endl;    //September 23–October 22
+                        cout<<"Your element is Air."<<endl;
+                        cout<<"You are most compatible with other "
+                                "Libra, Gemini, Aquarius."<<endl;
+                        if (day<=24&&day>=21){        
+                            cout<<"Your birthday is on a cusp."<<endl;
+                        }
+                    }else if (month==10&&day>=23||month==11&&day<=21){
+                        cout<<"You are a Scorpio."<<endl;   //October 23–November 21 
+                        cout<<"Your element is Water."<<endl;
+                        cout<<"You are most compatible with other "
+                                "Scorpio, Cancer, Pisces."<<endl;
+                        if (day<=24&&day>=22){        
+                            cout<<"Your birthday is on a cusp."<<endl;
+                        }else if (month==11&&day>=19){
+                            cout<<"Your birthday is on a cusp."<<endl;
+                        }
+                    }else if (month==11&&day>=22||month==12&&day<=21){
+                        cout<<"You are a Sagittarius."<<endl; //November 22–December 21
+                        cout<<"Your element is Fire."<<endl;
+                        cout<<"You are most compatible with other "
+                                "Scorpio, Cancer, Pisces."<<endl;
+                        if (day<=23&&day>=20){        
+                            cout<<"Your birthday is on a cusp."<<endl;
+                        }
+                    }else if (month==12&&day>=22||month==1&&day<=19){
+                        cout<<"You are a Capricorn."<<endl;   //December 22–January 19
+                        cout<<"Your element is Earth."<<endl;
+                        cout<<"You are most compatible with other "
+                                "Capricorn, Taurus, Virgo."<<endl;
+                        if (day<=23&&day>=20){        
+                            cout<<"Your birthday is on a cusp."<<endl;
+                        }else if (month==1&&day>=17){
+                            cout<<"Your birthday is on a cusp."<<endl;
+                        }
+                    }else if (month==1&&day>=20||month==2&&day<=18){  
+                        cout<<"You are a Aquarius."<<endl;    //for January 20–February 18
+                        cout<<"Your element is Air."<<endl;
+                        cout<<"You are most compatible with other "
+                                "Aquarius, Gemini, Libra."<<endl;
+                        if (day<=21&&day>18){          
+                            cout<<"Your birthday is on a cusp."<<endl;
+                        }else if (month==2&&day>=16){
+                            cout<<"Your birthday is on a cusp."<<endl;
+                        }
+                    }else if (month==2&&day>=19||month==3&&day<=20){
+                        cout<<"You are a Pisces."<<endl;      //February 19–March 20
+                        cout<<"Your element is Water."<<endl;
+                        cout<<"You are most compatible with other "
+                                " Pisces, Scorpio, Cancer."<<endl;
+                        if (day<=21&&day>=18){        
+                            cout<<"Your birthday is on a cusp."<<endl;
+                        }
+                    }else { 
+                        cout<<"Please enter a valid day"<<endl;
+                    }   
+                    //if the user would like to repeat
+                    cout<<endl<<"Do you want to check another birthday?"<<endl;
+                    cout<<"Press Y to check again or any other key to quit."<<endl;
+                    cin>>answer;
+                }while(toupper(answer)=='Y');
                 break;
             }
                 default:{
