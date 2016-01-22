@@ -29,10 +29,16 @@ int main(int argc, char** argv) {
     do{
          //Input data
         cout<<endl<<"Assignment 3 Problem Set"<<endl;
-        cout<<"Type 1 to Display Savitch 8Ed Chap3 Prob 10"<<endl;
-        cout<<"Type 2 to Display Savitch 8Ed Chap3 Prob 11"<<endl;
-        cout<<"Type 3 to Display Savitch 7Ed Chap3 Prob 1"<<endl;
-        cout<<"Type 4 to Display Savitch 9Ed Chap3 Prog Proj 3"<<endl;
+        cout<<"Type 1  to Display Savitch 8Ed Chap3 Prac Prob 10"<<endl;
+        cout<<"Type 2  to Display Savitch 8Ed Chap3 Prac Prob 11"<<endl;
+        cout<<"Type 3  to Display Savitch 7Ed Chap3 Prac Prob 1"<<endl;
+        cout<<"Type 4  to Display Savitch 9Ed Chap3 Prog Proj 3"<<endl;
+        cout<<"Type 5  to Display Savitch 9Ed Chap3 Prac Prob 6"<<endl;
+        cout<<"Type 6  to Display Savitch 9Ed Chap3 Prac Prob 7"<<endl;
+        cout<<"Type 7  to Display Savitch 9Ed Chap3 Prob "<<endl;
+        cout<<"Type 8  to Display Savitch 9Ed Chap3 Prob "<<endl;
+        cout<<"Type 9  to Display Savitch 9Ed Chap3 Prob "<<endl;
+        cout<<"Type 10 to Display Savitch 9Ed Chap3 Prob "<<endl;
         cout<<"Type anything else to exit"<<endl<<endl;
         cin>>nSoltn;
         //Solutions to all the problems
@@ -228,6 +234,59 @@ int main(int argc, char** argv) {
                     case 1: cout<<"I";break;
                 }cout<<endl;
                     break;
+            }
+            case 5:{
+                //The problem to solve
+                cout<<endl<<"Solution to Savitch 9thEd Chap3 Prob6"<<endl;
+                cout<<endl<<"Archimedes' principle : Buoyancy"<<endl;
+
+                //declare and initialize variables
+                float weight;    // weight of sphere in pounds
+                float radius;    // radius of sphere in feet
+                float volume;    // volume of sphere
+                float buoy;      // buoyancy
+                float y = 62.4;  // specific weight of water
+                const float PI = 3.1415927;
+
+               //input the weight and radius of the sphere
+                cout<<endl<<"Enter the weight of the sphere in pounds."<<endl;
+                cin>>weight;
+                cout<<endl<<"Enter the radius of the sphere in feet"<<endl;
+                cin>>radius;
+
+                //calculations for volume 
+                volume=(4.0f/3.0f)*PI*(radius*radius*radius);
+                
+                //calculate buoyant force
+                buoy=volume*y;
+
+                //output if it will float or sink
+                if (buoy>=weight){   
+                    cout<<endl<<"The sphere will float!"<<endl;
+                }else {
+                    cout<<endl<<"The sphere will sink!"<<endl;
+                }
+                break;
+            }   
+            case 6:{
+                 //The problem to solve
+                cout<<endl<<"Solution to Savitch 9thEd Chap3 Prob7"<<endl;
+                cout<<endl<<"Fahrenheit and Celsius"<<endl;
+
+                //declare and initialize variables
+                int frnht;     //Fahrenheit
+                int celsius=100;   //Celsius
+
+                //loop until they are the same value
+               do{
+                    celsius--;
+                    frnht=(9.0f*celsius/5.0f)+32;   
+                }while (frnht!=celsius);        
+
+                //Output the results
+                cout<<endl<<"When it is "<<frnht<<" degrees Fahrenheit,"<<endl;
+                cout<<"it is also "<<celsius<<" degrees in Celsius."<<endl;
+                break;
             }
                 default:{
                     cout<<"Exiting the Program"<<endl;
