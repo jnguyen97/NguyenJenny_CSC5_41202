@@ -26,7 +26,7 @@ float save4(float, float, int);      //for-loops Banking with Pennies
 float save5(float, float, int);      //recursion
 float save6(float, int, float=0.05f);//defaulted save function
 float save7(float, float, int);      //for-loops and static variable
-
+void save8(float, float, int, float&);//power
 //Execution Begins Here
 int main(int argc, char** argv) {
     //Set the random number seed
@@ -62,8 +62,31 @@ int main(int argc, char** argv) {
         <<save7(pv,intRate/PERCENT,nComp)<<endl;
     cout<<"The Savings Using For Loops and static counter = $"
         <<save7(pv,intRate/PERCENT,nComp)<<endl;
+    float futrVal;
+    save8(pv,intRate/PERCENT,nComp,futrVal);
+    cout<<"The next function output is a pass by reference."<<endl;
+    cout<<"The Savings Using For Loops - Banking Version  = $"
+        <<futrVal<<endl;
     //Exit stage right
     return 0;
+}
+//000000011111111112222222222333333333344444444445555555555666666666677777777778
+//345678901234567890123456789012345678901234567890123456789012345678901234567890
+/***************************************SAVE8**********************************/
+//Inputs
+//p->Present Values $'s
+//i->Interest Rate %
+//n->Number of compounding periods
+//Outputs
+//FV->Future Value $'s
+//Note: Using the for loop function Banking Implementation
+//      With a pass by reference variable
+void save8(float p, float i, int n, float &fv){
+    int ip=p*PERCENT;//Place the value in Pennies
+    for(int years=1;years<=n;years++){
+        ip*=(1+i);
+    }
+    fv=static_cast<float>(ip)/PERCENT;   //Returning to $'s
 }
 //000000011111111112222222222333333333344444444445555555555666666666677777777778
 //345678901234567890123456789012345678901234567890123456789012345678901234567890
@@ -81,7 +104,7 @@ float save7(float p, float i, int n){
         p*=(1+i);
     }
     nCalls++;
-    cout<<"This function Save7 contains a static counter = "<<nCalls<<endl;
+    cout<<"This function Save7 contains a static counter  = "<<nCalls<<endl;
     return p;
 }
 //000000011111111112222222222333333333344444444445555555555666666666677777777778
