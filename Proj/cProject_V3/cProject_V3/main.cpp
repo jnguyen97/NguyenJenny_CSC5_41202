@@ -49,7 +49,7 @@ case 1:{
     cout<<"What is your name?"<<endl;
     cin>>player;
     //Intro
-    cout<<endl<<"Welcome to NeoQuest, "<<player<<"!"<<endl<<
+    cout<<endl<<"Welcome "<<player<<"!"<<endl<<
     "Your Quest will be to collect 30 Gems and"<<endl<<
     "deliver them to the King. There are several"<<endl<<
     "ways you can get Gems around here."<<endl<<"You can "
@@ -61,7 +61,7 @@ case 1:{
     
     do{
     //Town actions
-    cout<<endl<<"You are currently in Neopia."<<endl;
+    cout<<endl<<"You are currently in Town."<<endl;
     cout<<"What would you like to do?"<<endl;
     cout<<"1 : Go into the Forest."<<endl;
     cout<<"2 : Go to the Castle."<<endl;
@@ -129,7 +129,7 @@ switch(optionT){
             }while(spdrHP>0&&playHP>0);
             if(spdrHP<=0&&playHP>0){
             cout<<"You defeated the Spider Warrior."<<endl;
-            cout<<"+ 3 Gem)."<<endl;
+            cout<<"+ 3 Gems."<<endl;
             gems+=3;
             cout<<"You have "<<gems<<" Gem(s)."<<endl;
             }else if(spdrHP>0&&playHP<=0){
@@ -148,12 +148,15 @@ switch(optionT){
             int gemspls=rand()%10+1;    //gain/lose gems 1-10
             
             if(randEV==1){
-                cout<<"You tripped on something while exploring."<<endl;
+                cout<<"You found something shiny on the ground while exploring."<<endl;
                 if(karma>0){
                     cout<<"Nice! It was a gem on the ground!"<<endl;
+                    cout<<"+ 1 Gem."<<endl;
                     gems+=1;
+                    cout<<"You have "<<gems<<" Gem(s)."<<endl;
                 }
                 else if(karma<0){
+                    cout<<"It was a giant beetle! It bit you!"<<endl
                     cout<<" - 1 Health Point."<<endl;
                     playHP-=1;
                     cout<<"Your Health Point(s) : "<<playHP<<"."<<endl;
@@ -184,14 +187,14 @@ switch(optionT){
             else if(randEV==4){
             //sleeping dog event
             cout<<endl<<"You come across a sleeping Dog."<<endl;
-            cout<<"It is guarding an open chest filled with gems."<<endl;
-            cout<<"1 : Quietly take the item and run away."<<endl;
+            cout<<"It is guarding an open chest filled with stuff."<<endl;
+            cout<<"1 : Quietly take the something from chest and run away."<<endl;
             cout<<"2 : Leave the Dog and chest alone and continue "
                     "on your way."<<endl<<endl;
             cin>>optionD;
                 if(optionD==1){
                     if (karma>5){
-                        cout<<"You manage to grab a few gems with no problems"
+                        cout<<"You manage to grab something with no problems"
                             <<endl<<"at all and before making a quiet escape."
                             <<endl<<"You feel bad for stealing."<<endl;
                             cout<<"+ "<<gemspls<<" Gem(s)."<<endl;
@@ -201,13 +204,14 @@ switch(optionT){
                     }
                     else if (karma<0){
                         cout<<"As you were quietly walking towards the chest,"
-                                <<endl<<"you have the sudden urge to sneeze. "
-                                "Unfortunately,"<<endl<<"you sneezed and the "
-                                "awakens the sleeping Dog."<<endl<<"It beings "
+                                <<endl<<"you get the sudden urge to sneeze. "
+                                "Unfortunately,"<<endl<<"you sneezed and it "
+                                "awakens the sleeping Dog."<<endl<<"It begins "
                                 "to growls at you and you decide to run away."
                                 <<endl<<"In panic, you dropped a few things "
                                 "while you were running away."<<endl;
                             gems-=gemspls;
+                            cout<<" - "<<gemspls<<" Gem(s)."<<endl;
                             karma-=1;
                             if (gems<0){
                                 gems=0;
@@ -219,7 +223,7 @@ switch(optionT){
                             "the chest,"<<endl<<"you get a sudden urge "
                             "to sneeze. Fortunately,"<<endl<<"you were "
                             "able to resist the urge and manage to grab"
-                            <<endl<<"a Gem before making your "
+                            <<endl<<"something before making your "
                             "escape."<<endl<<"+ 1 Gem."<<endl;
                             gems+=1;
                             karma-=1;
