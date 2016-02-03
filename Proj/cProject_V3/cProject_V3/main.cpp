@@ -148,7 +148,7 @@ switch(optionT){
             int gemspls=rand()%10+1;    //gain/lose gems 1-10
             
             if(randEV==1){
-                cout<<"You found something shiny on the ground while exploring."<<endl;
+                cout<<"You found something shiny on the ground."<<endl;
                 if(karma>0){
                     cout<<"Nice! It was a gem on the ground!"<<endl;
                     cout<<"+ 1 Gem."<<endl;
@@ -167,7 +167,7 @@ switch(optionT){
                         }
                 }
                 else{
-                    cout<<"It was just a shiny rock."<<endl;
+                    cout<<"It was just a really shiny rock."<<endl;
                 }
             }
             else if(randEV==2){
