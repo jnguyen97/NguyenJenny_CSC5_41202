@@ -156,7 +156,7 @@ switch(optionT){
                     cout<<"You have "<<gems<<" Gem(s)."<<endl;
                 }
                 else if(karma<0){
-                    cout<<"It was a giant beetle! It bit you!"<<endl
+                    cout<<"It was a giant beetle! It bit you!"<<endl;
                     cout<<" - 1 Health Point."<<endl;
                     playHP-=1;
                     cout<<"Your Health Point(s) : "<<playHP<<"."<<endl;
