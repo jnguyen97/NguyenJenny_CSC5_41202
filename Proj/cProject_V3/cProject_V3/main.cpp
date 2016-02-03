@@ -166,6 +166,9 @@ switch(optionT){
                         return 0;
                         }
                 }
+                else{
+                    cout<<"It was just a shiny rock."<<endl;
+                }
             }
             else if(randEV==2){
                 cout<<"You explored the forest for a few hours."<<endl;
