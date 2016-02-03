@@ -66,6 +66,12 @@ case 1:{
     cout<<"1 : Go into the Forest."<<endl;
     cout<<"2 : Go to the Castle."<<endl;
     cin>>optionT;
+    while(optionT<1||optionT>2){
+       cout<<"What would you like to do?"<<endl;
+        cout<<"1 : Go into the Forest."<<endl;
+        cout<<"2 : Go to the Castle."<<endl;
+        cin>>optionT;
+    }
 
 switch(optionT){
     case 1: {
@@ -113,8 +119,8 @@ switch(optionT){
                 case 4:{
                     cout<<"You were unable to run away!"<<endl;
                     cout<<"The Spider Warrior attacks you for"
-                            " "<<SPdmg<<" damage!"<<endl;
-                    playHP-=SPdmg;
+                            " "<<SPdmg-1<<" damage!"<<endl;
+                    playHP-=SPdmg-1;
                     cout<<"Your Health Points : "<<playHP<<"."<<endl;
                     break;
                 }
@@ -137,14 +143,31 @@ switch(optionT){
             break;
         }
         case 2:{
-            int randEV=rand()%3+1;      //Random Event 
+            int randEV=rand()%4+1;      //Random Event 
             int gemspls=rand()%10+1;    //gain/lose gems 1-10
             
             if(randEV==1){
+                cout<<"You tripped on something while exploring."<<endl;
+                if(karma>0){
+                    cout<<"Nice! It was a gem on the ground!"<<endl;
+                    gems+=1;
+                }
+                else if(karma<0){
+                    cout<<" - 1 Health Point(s)."<<endl;
+                    playHP-=1;
+                    cout<<"Your Health Point(s) : "<<playHP<<"."<<endl;
+                        if(playHP<=0){
+                        cout<<"You Died."<<endl;
+                        lose();
+                        return 0;
+                        }
+                }
+            }
+            else if(randEV==2){
             cout<<"You explored the forest for a few hours."<<endl;
             cout<<"You were not able to find anything of value."<<endl;
             }
-            else if (randEV==2){
+            else if (randEV==3){
                 cout<<"A random fairy blesses you."<<endl;
                 cout<<"You feel a little lighter!"<<endl;
                 playHP+=1;
@@ -155,10 +178,9 @@ switch(optionT){
                 }
                         if(playHP>30){
                             playHP=30;
-                        }
-                
+                        }    
             }
-            else if(randEV==3){
+            else if(randEV==4){
             //sleeping dog event
             cout<<endl<<"You come across a sleeping Dog."<<endl;
             cout<<"It is guarding an open chest filled with gems."<<endl;
@@ -190,7 +212,6 @@ switch(optionT){
                                 gems=0;
                             }
                             cout<<"You have "<<gems<<" Gem(s)."<<endl;
-
                     }
                     else{     
                         cout<<"As you were quietly walking towards "
@@ -204,11 +225,11 @@ switch(optionT){
                             cout<<"You have "<<gems<<" Gem(s)."<<endl;
                     }
                 }
-                    if(optionD==2){
-                        cout<<"You decide to leave the sleeping dog "<<endl;
-                        cout<<"alone and continue on your path."<<endl;
-                        karma+=0.5;
-                    }
+                if(optionD==2){
+                    cout<<"You decide to leave the sleeping dog "<<endl;
+                    cout<<"alone and continue on your path."<<endl;
+                    karma+=0.5;
+                }
             }
         break;
         }
@@ -216,10 +237,10 @@ switch(optionT){
             cout<<"You returned to town."<<endl;
             break;
         }
-        }
+    }
     }while(optionS!=3);
     break;
-}
+    }
     case 2:{
         cout<<endl<<"You walked to the Castle."<<endl;
         do{
@@ -231,14 +252,15 @@ switch(optionT){
                 cout<<"Hello "<<player<<"!"<<endl;
                 cout<<"Let me see how many Gems you have!"<<endl<<endl;
                 if(gems>=30){
-                    cout<<"Nicely done, you have completed your task!"<<endl;
+                    cout<<"Nicely done"<<player<<", you have completed "
+                          "your task!"<<endl;
                     win();
                     return 0;
                 }else{
-                    cout<<"Unfortunately, that is not enough Gem(s)."<<endl<<
-                    "You need will need "<<30-gems<<" more Gem(s)."<<endl<<
-                    "Please come back when you have "<<endl<<
-                            "collected some more Gem(s)."<<endl;
+                    cout<<"Unfortunately, "<<player<<" that is not "
+                    "enough Gem(s)."<<endl<< "You need will need "<<30-gems<<
+                    " more Gem(s)."<<endl<< "Please come back when you "
+                    "have "<<endl<<"collected some more Gem(s)."<<endl;
                 }
             break;
             }
