@@ -86,7 +86,8 @@ switch(optionT){
         case 1:{ 
             //Spider Monster 1
             int spdrHP=10,SPdmg=2;            //SpiderHealthPoint&Damage
-            cout<<endl<<"You found a Spider Warrior!"<<endl;
+            cout<<endl<<"You walked into a cave filled with webs."
+                    <<endl<<"You found a Spider Warrior!"<<endl;
         do{
             cout<<"1 : Attack."<<endl;
             cout<<"2 : Check Monster Info."<<endl;
@@ -101,19 +102,19 @@ switch(optionT){
                     cout<<"It hisses and bites you for "
                             <<SPdmg<<" damage!"<<endl;
                     playHP-=SPdmg;
-                    cout<<"Your Health Points : "<<playHP<<"."<<endl;
+                    cout<<"Your Health Point(s) : "<<playHP<<"."<<endl;
                     break;
                 }
                 case 2: {
                     cout<<"Spider Warrior."<<endl;
-                    cout<<"10 Health Point||2 Attack Damage."<<endl;
+                    cout<<"10 Health Points||2 Attack Damage."<<endl;
                     cout<<"Trap Ability: Its sticky web leaves "
                             "no chance of escaping!"<<endl;
                     break;
                 }
                 case 3: {
                     cout<<"Nothing happened."<<endl;
-                    cout<<"Your Health Points : "<<playHP<<"."<<endl;
+                    cout<<"Your Health Point(s) : "<<playHP<<"."<<endl;
                     break;
                 }
                 case 4:{
@@ -121,14 +122,14 @@ switch(optionT){
                     cout<<"The Spider Warrior attacks you for"
                             " "<<SPdmg-1<<" damage!"<<endl;
                     playHP-=SPdmg-1;
-                    cout<<"Your Health Points : "<<playHP<<"."<<endl;
+                    cout<<"Your Health Point(s) : "<<playHP<<"."<<endl;
                     break;
                 }
                 }
             }while(spdrHP>0&&playHP>0);
             if(spdrHP<=0&&playHP>0){
             cout<<"You defeated the Spider Warrior."<<endl;
-            cout<<"+ 3 Gem(s)."<<endl;
+            cout<<"+ 3 Gem)."<<endl;
             gems+=3;
             cout<<"You have "<<gems<<" Gem(s)."<<endl;
             }else if(spdrHP>0&&playHP<=0){
@@ -153,7 +154,7 @@ switch(optionT){
                     gems+=1;
                 }
                 else if(karma<0){
-                    cout<<" - 1 Health Point(s)."<<endl;
+                    cout<<" - 1 Health Point."<<endl;
                     playHP-=1;
                     cout<<"Your Health Point(s) : "<<playHP<<"."<<endl;
                         if(playHP<=0){
@@ -164,8 +165,8 @@ switch(optionT){
                 }
             }
             else if(randEV==2){
-            cout<<"You explored the forest for a few hours."<<endl;
-            cout<<"You were not able to find anything of value."<<endl;
+                cout<<"You explored the forest for a few hours."<<endl;
+                cout<<"You were not able to find anything of value."<<endl;
             }
             else if (randEV==3){
                 cout<<"A random fairy blesses you."<<endl;
@@ -173,8 +174,8 @@ switch(optionT){
                 playHP+=1;
                 karma+=0.2;
                 if(playHP<30){
-                    cout<<" + 1 Health Points."<<endl;
-                    cout<<"Your Health Points : "<<playHP<<"."<<endl;
+                    cout<<" + 1 Health Point."<<endl;
+                    cout<<"Your Health Point(s) : "<<playHP<<"."<<endl;
                 }
                         if(playHP>30){
                             playHP=30;
